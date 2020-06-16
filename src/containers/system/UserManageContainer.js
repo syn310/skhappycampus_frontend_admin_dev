@@ -36,7 +36,7 @@ class  UserManageContainer extends Component {
     /** 질문카테고리 코드데이터 조회 */
     getCodeValue = () => {
         axios({
-            url: devtest() + `/commonCode/BP_PERMISSION/K`,//코드 URL은 뒤에 주소 대문자 사용함
+            url:`/commonCode/BP_PERMISSION/K`,//코드 URL은 뒤에 주소 대문자 사용함
             method : 'get',
             headers: { Pragma: 'no-cache'}
         }).then(

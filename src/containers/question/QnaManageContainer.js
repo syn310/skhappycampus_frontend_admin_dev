@@ -4,7 +4,6 @@ import { Header, Grid, Table, Button, Dropdown,
 import axios from 'axios';
 import storage from 'lib/storage';
 import dateTimeFormat from 'lib/dateTimeFormat';
-import devtest from 'lib/devtest';
 
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -42,7 +41,7 @@ class QnaManageContainer extends Component {
     getCodeValue = () => {
 
         axios({
-            url: devtest() + `/commonCode/QUESTION/A`,//코드 URL은 뒤에 주소 대문자 사용함
+            url:`/commonCode/QUESTION/A`,//코드 URL은 뒤에 주소 대문자 사용함
             method : 'get',
             headers: { Pragma: 'no-cache'}
         }).then(
@@ -63,7 +62,7 @@ class QnaManageContainer extends Component {
     getQnaList = (header) => {
         console.log(header)
         axios({
-            url: devtest() + "/qna",
+            url:"/qna",
             method:"get",
             headers: { Pragma: 'no-cache', "x-access-token": (header !== undefined ? header.newtoken: storage.getToken())}
           })
@@ -201,7 +200,7 @@ class QnaManageContainer extends Component {
         if(confirm("저장하시겠습니까?"))
             if(this.checkValidation())
                 axios({
-                    url: devtest() + `/qna/qnaAnswer/${qnaInfo.qnaSeq}`,
+                    url:`/qna/qnaAnswer/${qnaInfo.qnaSeq}`,
                     method : "put",
                     data: { qnaInfo },
                     headers: { "Pragma" : 'no-cache' , "x-access-token": storage.getToken()}
@@ -226,7 +225,7 @@ class QnaManageContainer extends Component {
         const {getQnaList} = this;
 
         axios({
-            url: devtest() + "/qna/checkNewQna",
+            url:"/qna/checkNewQna",
             method:"get",
             headers: { "Pragma": 'no-cache',
                    "x-access-token": (header !== undefined ? header.newtoken: storage.getToken())} //session storage에서 저장된 token을 빼와서 token을 전달.
@@ -257,7 +256,7 @@ class QnaManageContainer extends Component {
         if(confirm("선택하신 항목을 삭제하시겠습니까?"))
             
             axios({
-                url: devtest() + `/qna/delete/${qnaSeq}`,
+                url: `/qna/delete/${qnaSeq}`,
                 method : "put",
                 // data: { updateUserId:"" },
                 headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken() }

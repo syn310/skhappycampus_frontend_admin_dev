@@ -22,6 +22,7 @@ import RegistDegreeInfo from './applicant/RegistDegreeInfo';
 import RegistExtraCert from './applicant/RegistExtraCert';
 
 import MailTemplateContentPopup from './system/MailTemplateContentPopup';
+import BookList from './system/BookList';
 
 export {
   Footer,
@@ -41,6 +42,7 @@ export {
   RegistBasicInfo,
   RegistDegreeInfo,
   RegistExtraCert,
-  MailTemplateContentPopup
+  MailTemplateContentPopup,
+  BookList
 }
 

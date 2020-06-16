@@ -51,7 +51,7 @@ class HeaderContainer extends Component {
         const { MenuActions } = this.props;
 
         axios({
-            url: devtest() + "/qna/checkNewQna",
+            url:"/qna/checkNewQna",
             method:"get",
             headers: { "Pragma": 'no-cache',
                    "x-access-token": storage.getToken()} //session storage에서 저장된 token을 빼와서 token을 전달.
@@ -145,6 +145,8 @@ class HeaderContainer extends Component {
                         {/* <Dropdown.Item>메뉴별권한관리</Dropdown.Item> */}
                         <Dropdown.Item data-url="/system/mail" onClick={menuClick}>메일템플릿관리</Dropdown.Item>
                         {/* <Dropdown.Item>부가정보관리</Dropdown.Item> */}
+                        {/* Surim */}
+                        <Dropdown.Item data-url="/system/book" onClick={menuClick}>도서나눔관리</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
 

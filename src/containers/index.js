@@ -18,7 +18,8 @@ import MailTemplateContainer from './system/MailTemplateContainer';
 import FaqManageContainer from './question/FaqManageContainer';
 import QnaManageContainer from './question/QnaManageContainer';
 
-
+/* Surim */
+import BookManageContainer from './system/BookManageContainer';
 
 
 export {
@@ -35,5 +36,6 @@ export {
   FaqManageContainer,
   QnaManageContainer,
   MenuManageContainer,
-  MailTemplateContainer
+  MailTemplateContainer,
+  BookManageContainer,
 }

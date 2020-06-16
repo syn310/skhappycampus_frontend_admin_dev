@@ -9,7 +9,8 @@ import {
   FaqManageContainer,
   QnaManageContainer,
   MenuManageContainer,
-  MailTemplateContainer
+  MailTemplateContainer,
+  BookManageContainer
 } from 'containers';
 
 import { RegistForm } from 'components';
@@ -58,10 +59,13 @@ export const privateRoutes = [
     path: "/applicant/applyuser",
     component: RegistForm
   },
-
-   {/** 메일 템플릿 관리 */
+  {/** 메일 템플릿 관리 */
     path: "/system/mail",
     component: MailTemplateContainer
+  },
+  {/** 도서기부 관리 */
+    path: "/system/book",
+    component: BookManageContainer
   },
 ];
 

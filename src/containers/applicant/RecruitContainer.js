@@ -9,7 +9,6 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as recruitActions from 'modules/recruit';
-import devtest from 'lib/devtest';
 
 class RecruitContainer extends Component {
     constructor(props) {
@@ -49,7 +48,7 @@ class RecruitContainer extends Component {
         const self = this;
 
         axios({
-            url: devtest() + "/recruitNotice",
+            url:"/recruitNotice",
             method : "get",
             headers: { "Pragma" : 'no-cache' ,"x-access-token": storage.getToken() }
         }).then((res)=>{
@@ -190,7 +189,7 @@ class RecruitContainer extends Component {
                     recruitInfo.serialNumber = `${dt.getFullYear()}-${serialNumber.department}-${serialNumber.location}`;  
 
                 axios({
-                    url: devtest() + popupType==="등록" ? "/recruitNotice" : `/recruitNotice/${recruitInfo.serialNumber}`,
+                    url: popupType==="등록" ? "/recruitNotice" : `/recruitNotice/${recruitInfo.serialNumber}`,
                     method : popupType==="등록" ? "post" : "put",
                     data: { recruitInfo },
                     headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken() }
@@ -257,7 +256,7 @@ class RecruitContainer extends Component {
         if(confirm("선택하신 공고를 삭제하시겠습니까?"))
             
             axios({
-                url: devtest() + `/recruitNotice/delete/${serialNumber}`,
+                url: `/recruitNotice/delete/${serialNumber}`,
                 method : "put",
                 data: { updateUserId:"test" },
                 headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken() }

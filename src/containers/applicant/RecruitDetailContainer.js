@@ -12,7 +12,6 @@ import "react-table/react-table.css";
 import iconDetail from 'public/assets/img/icon_btn_search.png';
 import iconDownload from 'public/assets/img/icon_btn_down.png';
 import { CSVLink, CSVDownload } from "react-csv";
-import devtest from 'lib/devtest';
 
 class RecruitDetailContainer extends Component {
 
@@ -80,7 +79,7 @@ class RecruitDetailContainer extends Component {
     getApplyUserList = (serialNumber) => {
         const {getCompanyRanking} =this;
         axios({
-            url: devtest() + "/recruitNotice/applyUserList/" + serialNumber,
+            url:"/recruitNotice/applyUserList/" + serialNumber,
             method : "get",
             headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken() }
         }).then((res)=>{
@@ -100,7 +99,7 @@ class RecruitDetailContainer extends Component {
     getCompanyRanking = (serialNumber, header) => {
         const {getSchoolRanking} = this;
         axios({
-            url: devtest() + "/recruitNotice/companyRank/" + serialNumber,
+            url:"/recruitNotice/companyRank/" + serialNumber,
             method : "get",
             headers: { "Pragma" : 'no-cache' , "x-access-token": header.newtoken }
         }).then((res)=>{
@@ -120,7 +119,7 @@ class RecruitDetailContainer extends Component {
     getSchoolRanking = (serialNumber, header) => {
         const {getRecruitSummary} =this;
         axios({
-            url: devtest() + "/recruitNotice/schoolRank/" + serialNumber,
+            url:"/recruitNotice/schoolRank/" + serialNumber,
             method : "get",
             headers: { "Pragma" : 'no-cache' , "x-access-token": header.newtoken }
         }).then((res)=>{
@@ -140,7 +139,7 @@ class RecruitDetailContainer extends Component {
     getRecruitSummary = (serialNumber, header) => {
         const {getTodaySummary} = this;
         axios({
-            url: devtest() + "/recruitNotice/summary/" + serialNumber,
+            url:"/recruitNotice/summary/" + serialNumber,
             method : "get",
             headers: { "Pragma" : 'no-cache', "x-access-token": header.newtoken}
         }).then((res)=>{
@@ -166,7 +165,7 @@ class RecruitDetailContainer extends Component {
     /** 금일 지원자수 */
     getTodaySummary = (serialNumber, header) => {
         axios({
-            url: devtest() + "/recruitNotice/today/" + serialNumber,
+            url:"/recruitNotice/today/" + serialNumber,
             method : "get",
             headers: { "Pragma" : 'no-cache', "x-access-token": header.newtoken }
         }).then((res)=>{

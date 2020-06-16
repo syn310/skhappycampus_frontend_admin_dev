@@ -3,7 +3,6 @@ import { Header, Grid, Tab, Button } from 'semantic-ui-react'
 import { MenuApplicant, MenuBp, MenuPopup } from 'components';
 import axios from 'axios';
 import storage from 'lib/storage';
-import devtest from 'lib/devtest';
 
 class MenuManageContainer extends Component {
     constructor(props) {
@@ -41,7 +40,7 @@ class MenuManageContainer extends Component {
         const self = this;
 
         axios({
-          url: devtest() + (activeIndex == 0 ? "/menuUser" : "/menuBp") + "/menuid",
+          url: (activeIndex == 0 ? "/menuUser" : "/menuBp") + "/menuid",
           method:"get",
           headers: { Pragma: 'no-cache', "x-access-token": storage.getToken() }
         })
@@ -67,7 +66,7 @@ class MenuManageContainer extends Component {
         const self = this;
 
         axios({
-          url: devtest() + (activeIndex == 0 ? "/menuUser" : "/menuBp") + "/menuid",
+          url: (activeIndex == 0 ? "/menuUser" : "/menuBp") + "/menuid",
           method:"get",
           headers: { Pragma: 'no-cache', "x-access-token": storage.getToken() }
         })
@@ -90,7 +89,7 @@ class MenuManageContainer extends Component {
         const self = this;
 
         axios({
-          url:devtest() + "/menuBp",
+          url:"/menuBp",
           method:"get",
           headers: { Pragma: 'no-cache', "x-access-token": storage.getToken() }
         })
@@ -114,7 +113,7 @@ class MenuManageContainer extends Component {
         const self = this;
 
         axios({
-          url:devtest() + "/menuUser",
+          url:"/menuUser",
           method:"get",
           headers: { Pragma: 'no-cache', "x-access-token": storage.getToken() }
         })
@@ -148,7 +147,7 @@ class MenuManageContainer extends Component {
             if(this.checkValidation()){
                 if(activeIndex==1){
                     axios({
-                        url: devtest() + popupType==="등록" ? "/menuBp" : `/menuBp/${menuInfo.menuId}`,
+                        url: popupType==="등록" ? "/menuBp" : `/menuBp/${menuInfo.menuId}`,
                         method : popupType==="등록" ? "post" : "put",
                         data: { menuInfo },
                         headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken()  }
@@ -166,7 +165,7 @@ class MenuManageContainer extends Component {
                 }
                 else {
                     axios({
-                        url: devtest() +  popupType==="등록" ? "/menuUser" : `/menuUser/${menuInfo.menuId}`,
+                        url: popupType==="등록" ? "/menuUser" : `/menuUser/${menuInfo.menuId}`,
                         method : popupType==="등록" ? "post" : "put",
                         data: { menuInfo },
                         headers: { "Pragma" : 'no-cache' , "x-access-token": storage.getToken() }

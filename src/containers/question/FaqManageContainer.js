@@ -4,7 +4,6 @@ import { Header, Grid, Table, Button, Dropdown,
 import axios from 'axios';
 import storage from 'lib/storage';
 import dateTimeFormat from 'lib/dateTimeFormat';
-import devtest from 'lib/devtest';
 
 import { FaqContentPopup } from 'components';
 
@@ -38,7 +37,7 @@ class FaqManageContainer extends Component {
     getCodeValue = () => {
 
         axios({
-            url: devtest() + `/commonCode/QUESTION/A`,//코드 URL은 뒤에 주소 대문자 사용함
+            url:`/commonCode/QUESTION/A`,//코드 URL은 뒤에 주소 대문자 사용함
             method : 'get',
             headers: { Pragma: 'no-cache'}
         }).then(
@@ -59,7 +58,7 @@ class FaqManageContainer extends Component {
     getFaqList = () => {
 
         axios({
-            url: devtest() + "/faq",
+            url:"/faq",
             method:"get",
             headers: { Pragma: 'no-cache',"x-access-token": storage.getToken()}
           })
@@ -198,7 +197,7 @@ class FaqManageContainer extends Component {
         if(confirm("저장하시겠습니까?"))
             if(this.checkValidation())
                 axios({
-                    url: devtest() + popupType==="등록" ? "/faq" : `/faq/${faqInfo.faqSeq}`,
+                    url: popupType==="등록" ? "/faq" : `/faq/${faqInfo.faqSeq}`,
                     method : popupType==="등록" ? "post" : "put",
                     data: { faqInfo },
                     headers: { "Pragma" : 'no-cache' , "x-access-token": storage.getToken()}
@@ -241,7 +240,7 @@ class FaqManageContainer extends Component {
         if(confirm("선택하신 항목을 삭제하시겠습니까?"))
             
             axios({
-                url: devtest() + `/faq/delete/${faqSeq}`,
+                url: `/faq/delete/${faqSeq}`,
                 method : "put",
                 // data: { updateUserId:"" },
                 headers: { "Pragma" : 'no-cache', "x-access-token": storage.getToken() }
